@@ -1,0 +1,46 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-menu side="right" [content]="mycontent">
+  <ion-content>
+    <ion-grid style="height: 100%;">
+      <ion-row justify-content-center align-items-start>
+          <h1>Connectez vous</h1>
+      </ion-row>
+      <ion-row justify-content-center align-items-start style="height:30%">
+        <ion-img src="../assets/imgs/logoschool.png" style="border-radius:50%;height:150px;width:150px;"></ion-img>
+      </ion-row>
+      <ion-row justify-content-center align-items-start>
+        <ion-item>
+          <ion-input type="text" placeholder="Entrez votre identifiant"></ion-input>
+        </ion-item>
+      </ion-row>
+      <ion-row justify-content-center align-items-start>
+        <ion-item>
+          <ion-input type="password" placeholder="Entrez votre mot de passe"></ion-input>
+        </ion-item>
+      </ion-row>
+      <ion-row justify-content-center align-items-end padding>
+        <button ion-button color="secondary">Secondary</button>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>

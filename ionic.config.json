@@ -1,0 +1,8 @@
+{
+  "name": "School",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "a91c5e04"
+}
