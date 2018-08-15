@@ -42,7 +42,4 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
   
-  doClick() {
-    this.menuCtrl.toggle('right');
-  }
 }
