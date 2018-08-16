@@ -16,26 +16,39 @@
 </ion-menu>
 
 <ion-menu side="right" [content]="mycontent">
-  <ion-content>
-    <ion-grid style="height: 100%;">
-      <ion-row justify-content-center align-items-start>
+  <ion-content *ngIf="current_page !== ConnectedPage">
+    <ion-grid>
+      <ion-row fixed justify-content-center align-items-start>
           <h1>Connectez vous</h1>
       </ion-row>
-      <ion-row justify-content-center align-items-start style="height:30%">
+      <ion-row fixed justify-content-center align-items-start>
         <ion-img src="../assets/imgs/logoschool.png" style="border-radius:50%;height:150px;width:150px;"></ion-img>
       </ion-row>
-      <ion-row justify-content-center align-items-start>
+      <ion-row fixed justify-content-center align-items-start>
         <ion-item>
-          <ion-input type="text" placeholder="Entrez votre identifiant"></ion-input>
+          <ion-label fixed>Email</ion-label>
+          <ion-input type="email" [(ngModel)]="user.email"></ion-input>
         </ion-item>
-      </ion-row>
-      <ion-row justify-content-center align-items-start>
+
         <ion-item>
-          <ion-input type="password" placeholder="Entrez votre mot de passe"></ion-input>
+          <ion-label fixed>Mot de passe</ion-label>
+          <ion-input type="password" [(ngModel)]="user.password"></ion-input>
         </ion-item>
+        <button ion-button color="secondary" outline (click)='login(user);'>Login</button>
       </ion-row>
-      <ion-row justify-content-center align-items-end padding>
-        <button ion-button color="secondary">Secondary</button>
+    </ion-grid>
+  </ion-content>
+  <ion-content *ngIf="current_page == ConnectedPage">
+    <ion-grid>
+      <ion-row fixed justify-content-center align-items-start>
+          <h1>Profil</h1>
+      </ion-row>
+      <ion-row fixed justify-content-center align-items-start>
+        <ion-img src="../assets/imgs/logoschool.png" style="border-radius:50%;height:150px;width:150px;"></ion-img>
+      </ion-row>
+      <ion-row fixed justify-content-center align-items-start>
+        
+        <button ion-button color="secondary" outline (click)='login(user);'>Login</button>
       </ion-row>
     </ion-grid>
   </ion-content>
@@ -43,4 +56,4 @@
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
-<ion-nav #mycontent swipeBackEnabled="false"></ion-nav>
+<ion-nav  #mycontent swipeBackEnabled="false"></ion-nav>

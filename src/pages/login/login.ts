@@ -1,8 +1,14 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { NavController } from 'ionic-angular';
-import { HomePage } from '../home/home.page';
-import { AuthService } from '../../services/auth.service';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { User } from '../user'
+import { AngularFireAuth } from 'angularfire2/auth';
+
+/**
+ * Generated class for the LoginPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
@@ -10,18 +16,23 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-	loginForm: FormGroup;
-	loginError: string;
 
-	constructor(
-		private navCtrl: NavController,
-		private auth: AuthService,
-		fb: FormBuilder
-	) {
-		this.loginForm = fb.group({
-			email: ['', Validators.compose([Validators.required, Validators.email])],
-			password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
-		});
-	}
+  user = {} as User;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad LoginPage');
+  }
+
+  async login(user: User) {
+    try {
+      const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
+      console.log(result);
+    }
+    catch (e) {
+      console.error(e);
+    }
+  }
 
 }
