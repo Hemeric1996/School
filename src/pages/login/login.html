@@ -1,31 +1,23 @@
 <ion-header>
-  <ion-navbar>
+  <!-- <ion-navbar>
     <ion-title>
-      Ionic2 Auth
+      Ionic Blank
     </ion-title>
-  </ion-navbar>
+  </ion-navbar> -->
 </ion-header>
 
-<ion-content padding>
-
-  <ion-list>
-
-    <ion-item>
-      <ion-label fixed>Email</ion-label>
-      <ion-input type="email" [(ngModel)]="user.email"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label fixed>Mot de passe</ion-label>
-      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-    </ion-item>
-
-  </ion-list>
-
-  <button ion-button full outline (click)='login(user);'>Login</button>
-
-  <!-- <button ion-button full icon-left (click)='login("fb");'>
-    <ion-icon name="logo-facebook"></ion-icon>Login with Facebook
-  </button> -->
-  <!-- <button ion-button clear (click)='signup();'>Don't have an account?</button> -->
+<ion-content>
+  <ion-grid class="haut">
+    <ion-row justify-content-center align-items-end class="image">
+        <ion-img width="150" height="150" src="../assets/imgs/logoschool.png" style="border-radius:50%;"></ion-img>
+    </ion-row>
+    <ion-row justify-content-center align-items-start class="titre">
+        <h1>School App</h1>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="bas">
+    <ion-row justify-content-center align-items-end style="height: 100%">
+      <p>Glissez vers la gauche pour vous connecter</p>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -5,4 +5,4 @@ export const FIREBASE_CONFIG = {
   projectId: "schools-ms",
   storageBucket: "schools-ms.appspot.com",
   messagingSenderId: "216221663561"
-  };
+}
